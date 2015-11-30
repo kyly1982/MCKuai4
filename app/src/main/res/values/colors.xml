@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#38CA44</color>
+    <color name="colorPrimaryDark">#289140</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <!--mcwa-->
+    <color name="primary">#391A56</color>
+    <color name="primary_dark">#381B55</color>
+    <color name="primary_light">#D1C4E9</color>
+    <color name="accent">#E040FB</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#948FC7</color>
+    <color name="third_text">#A2A0AD</color>
+    <color name="forth_text">#FBF348</color>
+    <color name="fifth_text">#71600F</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#00000000</color>
+    <color name="error">#ED3F3C</color>
+    <color name="item">#696296</color>
+    <color name="item_light">#817BA7</color>
+    <color name="item_dark">#302553</color>
+    <color name="attribute">#544E78</color>
+    <color name="image">#2C1A48</color>
+    <color name="green">#56B837</color>
+    <color name="red">#ED3F3C</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_overlay">#60FFFFFF</color>
+    <color name="radiobutton_unchecked">#381E57</color>
+    <color name="radiobutton_checked">#696296</color>
+    <color name="login_textcolor">#7B6EB2</color>
+    <color name="lab_rank">#8582C7</color>
+
+    <!--mckuai-->
+    <!-- 字体 -->
+    <color name="font_primary">#4D4D4D</color>
+    <color name="secondary">#B4B4B4</color>
+    <color name="font_forum_unselected">#1A923B</color>
+    <color name="font_radio_hint_normal">#B6A8A5</color>
+    <color name="font_radio_hint_checked">#24922F</color>
+    <color name="font_white">#FFFFFF</color>
+    <color name="font_black">#020202</color>
+    <color name="background_forum_selected">#22A53D</color>
+    <color name="font_red">#FF0000</color>
+    <color name="font_secondary">#B4B4B4</color>
+    <color name="font_gameedit_hint">#80000000</color>
+    <color name="font_green">#38CA44</color>
+
+    <!-- 边框 -->
+    <color name="frame_lightgray">#EBEBEB</color>
+    <color name="frame_green">#04FF04</color>
+    <color name="frame_darkgray">#DBDBDB</color>
+
+    <!-- 背景 -->
+    <color name="background_Grey">#F0F0F0</color>
+    <color name="background_green">#38CA44</color>
+    <color name="background_yellow">#FFCC00</color>
+    <color name="background_biue">#00CCFF</color>
+    <color name="background_azure">#55C1EE</color>
+    <color name="background_dark_green">#0CCB9C</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_litegray">#C9C9C9</color>
+    <color name="background_orange">#F5C41E</color>
+    <color name="background_gray">#EEF0F2</color>
+    <color name="background_blck">#060E12</color>
+    <color name="background_package_gray">#EFF0F2</color>
+
+    <!--通用色彩 -->
+    <color name="white">#FFFFFF</color>
+
+    <!-- 通知 -->
+    <color name="notification_background">#38CA44</color>
+    <color name="notification_textColor">#FFFFFF</color>
+    <color name="notification_icon_background">#000000</color>
+    <color name="new_message">#FF0000</color>
+
+    <!-- 进度提示 -->
+    <color name="load_accent">#7c4dff</color>
+    <color name="load_success">#3CCD88</color>
+    <color name="load_error">#f44336</color>
+
+    <!--我的背包-->
+    <color name="base">#F0F0F0</color>
+    <color name="highlight">#F0F0F0</color>
+
+    <color name="forum_unselected">#1A923B</color>
+
+    <color name="green_yellow">#ADFF2F</color>
+
+    <color name="btn_red">#e85454</color>
+
+</resources>

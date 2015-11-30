@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/wa_toolbar"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginBottom="@dimen/button_marginbottom"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/green"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/fontsize_big"
+            android:text="@string/wx_login"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/hint_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignBottom="@id/login"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/fontsize_smal"
+            android:visibility="gone"
+            />
+
+        <ImageView
+            android:id="@+id/loginimage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/ic_login"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/login_wa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_horizontal"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/fontsize_title"
+            android:text="@string/login_wa"
+            android:layout_above="@id/loginimage"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/login_wa"
+            android:textColor="@color/login_textcolor"
+            android:textSize="@dimen/fontsize_stress"
+            android:text="@string/login_hint1"
+            />
+    </RelativeLayout>
+
+
+</RelativeLayout>
+

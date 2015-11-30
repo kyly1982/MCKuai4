@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@mipmap/img_main"
+    tools:context="com.tars.mcwa.activity.ContributionActivity">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/wa_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:id="@+id/myinfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_ranking_content_height"
+            android:visibility="gone"
+            android:background="@color/image"
+            android:paddingLeft="@dimen/padding_horizontal"
+            android:paddingRight="@dimen/padding_horizontal">
+
+            <View
+                android:id="@+id/v_center"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/item_padding_vertical"
+                android:layout_centerInParent="true"
+                />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/myrank_layout"
+                android:layout_width="@dimen/ranklable_width"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/v_center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/fontsize_smal"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:text="@string/NO."/>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/myranking"
+                android:layout_width="@dimen/ranklable_width"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/myrank_layout"
+                android:layout_alignRight="@id/myrank_layout"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_below="@id/v_center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/fontsize_big"/>
+
+
+            <ImageView
+                android:id="@+id/mycover"
+                android:layout_width="@dimen/usercover_diameter_small"
+                android:layout_height="@dimen/usercover_diameter_small"
+                android:layout_toRightOf="@id/myrank_layout"
+                android:layout_marginLeft="@dimen/divi_height"
+                android:layout_marginRight="@dimen/divi_height"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:background="@drawable/icon_circle_blue"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/myname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/mycover"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/fontsize_big"
+                android:text="@string/myself"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/myscore"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical|right"
+                android:layout_alignParentRight="true"
+                android:singleLine="true"
+                android:textColor="@color/primary_text"
+                android:paddingRight="@dimen/padding_horizontal"
+                android:textSize="@dimen/fontsize_big"/>
+
+        </RelativeLayout>
+
+        <com.marshalchen.ultimaterecyclerview.UltimateRecyclerView
+            android:id="@+id/rankinglist"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/padding_horizontal"
+            app:recyclerviewEmptyView="@layout/wa_view_empty">
+            </com.marshalchen.ultimaterecyclerview.UltimateRecyclerView>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

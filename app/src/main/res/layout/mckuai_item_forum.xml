@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/forumview_height"
+    android:layout_height="@dimen/forumview_height"
+    android:layout_marginLeft="@dimen/com_margin"
+    android:layout_marginRight="@dimen/com_margin"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:background="@null" >
+
+    <RadioButton
+        android:id="@+id/rb_background"
+        android:layout_width="@dimen/forumview_height"
+        android:layout_height="@dimen/forumview_height"
+        android:background="@drawable/background_item_forum_selector"
+        android:button="@null"
+        android:checked="false" />
+
+        <TextView
+            android:id="@+id/tv_top"
+            android:layout_width="@dimen/forumview_height"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:lines="2"
+            android:background="@null"
+            android:textSize="@dimen/font_dimen_hint" />
+
+
+</RelativeLayout>

@@ -1,0 +1,115 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_centerInParent="true"
+    tools:context="com.tars.mcwa.fragment.ReadyFragment">
+
+
+    <LinearLayout
+        android:id="@+id/paper_head_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_horizontal"
+        android:paddingRight="@dimen/padding_horizontal"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/paper_cover"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/paper_cover_height"
+            android:scaleType="fitXY"
+            android:background="@mipmap/img_paper_header" />
+
+         <RelativeLayout
+             android:id="@+id/layout_hint"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/userlist_title_height"
+             android:orientation="horizontal"
+             android:background="@color/item_light">
+             <android.support.v7.widget.AppCompatTextView
+                 android:id="@+id/paper_examinees"
+                 android:layout_width="wrap_content"
+                 android:layout_height="@dimen/userlist_title_height"
+                 android:layout_alignParentLeft="true"
+                 android:paddingLeft="@dimen/margin_horizontal"
+                 android:gravity="bottom"
+                 android:textColor="@color/primary_text"
+                 android:textSize="@dimen/fontsize_lable"
+
+                 android:text="@string/paper_examinees" />
+
+             <android.support.v7.widget.AppCompatTextView
+                 android:id="@+id/paper_seckill"
+                 android:layout_width="wrap_content"
+                 android:layout_height="@dimen/userlist_title_height"
+                 android:layout_alignParentRight="true"
+                 android:layout_toRightOf="@id/paper_examinees"
+                 android:paddingRight="@dimen/margin_horizontal"
+                 android:gravity="right|bottom"
+                 android:layout_centerHorizontal="true"
+                 android:textSize="@dimen/fontsize_lable"
+                 android:textColor="@color/forth_text"
+                 android:text="@string/paper_seckill" />
+
+         </RelativeLayout>
+
+        <com.marshalchen.ultimaterecyclerview.UltimateRecyclerView
+            android:id="@+id/userlist"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/userlist_height"
+            android:paddingLeft="@dimen/margin_horizontal"
+            android:paddingRight="@dimen/margin_horizontal"
+            android:layout_gravity="center_vertical"
+            android:background="@color/item_light"
+            app:recyclerviewEmptyView="@layout/wa_view_empty">
+
+        </com.marshalchen.ultimaterecyclerview.UltimateRecyclerView>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/readarea_height"
+            android:background="@color/item">
+
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/fontsize_stress"
+                />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/ready"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/time"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/divi_height"
+                android:textSize="@dimen/fontsize_big"
+                android:textColor="@color/primary_text"
+                android:text="@string/paper_ready" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_vertical"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/fontsize_smal"
+        android:text="@string/paper_more" />
+
+
+</RelativeLayout>

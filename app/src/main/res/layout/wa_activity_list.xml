@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@mipmap/img_main"
+    tools:context="com.tars.mcwa.activity.ContributionActivity">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/wa_toolbar" />
+
+    <com.marshalchen.ultimaterecyclerview.UltimateRecyclerView
+        android:id="@+id/questionlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingLeft="@dimen/padding_horizontal"
+        android:paddingRight="@dimen/padding_horizontal"
+        app:recyclerviewEmptyView="@layout/wa_view_empty">
+
+    </com.marshalchen.ultimaterecyclerview.UltimateRecyclerView>
+
+
+</android.support.design.widget.CoordinatorLayout>

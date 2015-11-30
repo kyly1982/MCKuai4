@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- 标题栏高度 -->
+    <dimen name="titlebar_height">48dp</dimen>
+    <dimen name="titlebar_button_height">24dp</dimen>
+    <dimen name="button_left_width">55.5dp</dimen>
+    <dimen name="padding_right_button_left">22.5dp</dimen>
+    <!-- 最边上的控件和边框的边距以及控间间的间距 -->
+    <dimen name="com_margin">9dp</dimen>
+    <dimen name="com_padding">4.5dp</dimen>
+    <!-- 字体 -->
+    <dimen name="font_dimen_title">18sp</dimen>
+    <dimen name="font_title">18sp</dimen>
+    <dimen name="font_big">16sp</dimen>
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_hint">10sp</dimen>
+    <dimen name="font_dimen_big">16sp</dimen>
+    <dimen name="font_dimen_primary">14sp</dimen>
+    <dimen name="font_dimen_small">12sp</dimen>
+    <dimen name="font_dimen_hint">10sp</dimen>
+    <!-- item相关高度 -->
+    <dimen name="item_divider_height">11dp</dimen>
+    <dimen name="group_divider_height">26dp</dimen>
+    <dimen name="item_padleft">9dp</dimen>
+    <dimen name="item_height">89dp</dimen>
+    <dimen name="item_height_interval">6dp</dimen>
+    <dimen name="item_padTB">12dp</dimen>
+    <dimen name="item_recommend_cove_height">144dp</dimen>
+    <dimen name="item_recommend_height">189dp</dimen>
+    <!-- 二级菜单的高度 -->
+    <dimen name="menu_height_lv2">53dp</dimen>
+    <!-- 图文间距 -->
+    <dimen name="margin_top">5dp</dimen>
+    <dimen name="bottom_button_height">48dp</dimen>
+    <!-- 封面 -->
+    <dimen name="fm_w">115dp</dimen>
+    <dimen name="fm_h">65dp</dimen>
+    <!-- 下载控件 -->
+    <dimen name="xz_wh">50dp</dimen>
+    <!-- button高宽 -->
+    <dimen name="bt_h">46dp</dimen>
+    <dimen name="bt_w">109dp</dimen>
+    <!-- 分类button -->
+    <dimen name="btn_hw">55dp</dimen>
+    <!-- 二级封面 -->
+    <dimen name="fmer_w">213dp</dimen>
+    <dimen name="fmer_we">145dp</dimen>
+    <dimen name="fmer_h">120dp</dimen>
+    <!-- 二级控件 -->
+    <dimen name="bter_w">343dp</dimen>
+    <dimen name="bter_h">39dp</dimen>
+<!-- liatview 间隔 -->
+    <dimen name="lv_dividerHeight">6dp</dimen>
+    <!-- 详情页 -->
+    <dimen name="details_height">85dp</dimen>
+    .<dimen name="details_ht_h">39dp</dimen>
+    <dimen name="details_ht_w">342dp</dimen>
+    <dimen name="details_divider">9dp</dimen>
+    <!--工具页面-->
+    <dimen name="btn_playgame_width">80dp</dimen>
+    <dimen name="btn_navigation_icon_width">24dp</dimen>
+
+    <!-- 社区 -->
+    <dimen name="forumlist_height">66dp</dimen>
+    <dimen name="forumview_height">46dp</dimen>
+    <dimen name="forumview_cover_radius">23dp</dimen>
+    <dimen name="item_normalpost_height">74dp</dimen>
+
+    <!-- 帖子详情 -->
+    <dimen name="button_post_margin">33dp</dimen>
+
+
+    <dimen name="item_ownerinfo_layout_height">33dp</dimen>
+    <dimen name="item_ownerinfo_usercover_height">22dp</dimen>
+    <dimen name="usercover_recommend_height">40dp</dimen>
+
+    <!-- 个人中心 -->
+    <dimen name="userinfo_usercenter_background_height">255dp</dimen>
+    <dimen name="userinfo_usercenter_layout_margin">40dp</dimen>
+    <dimen name="usercover_usercenter_height">80dp</dimen>
+    <dimen name="button_usercenter_height">43dp</dimen>
+    <dimen name="button_usercenter_weight">86dp</dimen>
+    <dimen name="button_usercenter_radius">21.5dp</dimen>
+    <dimen name="item_usercenter_height">87dp</dimen>
+    <dimen name="leve_usercenter_height">25dp</dimen>
+
+
+    <!-- 背包 -->
+    <dimen name="item_user_width">106dp</dimen>
+    <dimen name="element_usercover_height">48dp</dimen>
+
+
+    <!--工具页-->
+    <dimen name="switcher_margin_bottom">5dp</dimen>
+</resources>

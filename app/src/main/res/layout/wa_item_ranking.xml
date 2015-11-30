@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_ranking_height"
+    android:paddingBottom="@dimen/item_ranking_paddingbottom">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_ranking_content_height"
+        android:background="@color/item">
+
+    <View
+        android:id="@+id/v_center"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/item_padding_vertical"
+        android:layout_centerInParent="true"
+        />
+
+    <View
+        android:id="@+id/item_ranklab"
+        android:layout_width="@dimen/ranklable_width"
+        android:layout_height="match_parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/ranklab"
+        android:layout_width="@dimen/ranklable_width"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/v_center"
+        android:gravity="center"
+        android:textSize="@dimen/fontsize_smal"
+        android:textColor="@color/primary_text"
+        android:text="@string/NO."/>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/item_userranking"
+        android:layout_width="@dimen/ranklable_width"
+        android:layout_height="match_parent"
+        android:layout_below="@id/v_center"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/fontsize_big"/>
+
+
+
+
+    <ImageView
+        android:id="@+id/item_usercover"
+        android:layout_width="@dimen/usercover_diameter_small"
+        android:layout_height="@dimen/usercover_diameter_small"
+        android:layout_toRightOf="@id/item_ranklab"
+        android:layout_marginLeft="@dimen/divi_height"
+        android:layout_marginRight="@dimen/divi_height"
+        android:layout_centerVertical="true"
+        android:scaleType="fitCenter"
+        android:background="@drawable/icon_circle_blue"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/item_username"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/item_usercover"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:gravity="center_vertical|left"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/fontsize_big"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/item_userscore"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:gravity="right|center_vertical"
+        android:layout_marginRight="@dimen/padding_horizontal"
+        android:textSize="@dimen/fontsize_big"
+        android:textColor="@color/primary_text"/>
+    </RelativeLayout>
+
+</RelativeLayout>

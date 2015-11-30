@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/primary"
+    tools:context="com.tars.mcwa.activity.UserCenterActivity">
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/wa_toolbar" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_share"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_share_height"
+                android:layout_alignParentBottom="true"
+                android:background="@color/green"
+                android:textColor="@color/primary_text"
+                android:text="@string/flaunt" />
+
+            <RelativeLayout
+                android:id="@+id/userinfo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/infolayout_height"
+                android:layout_above="@id/btn_share">
+
+                <View
+                    android:id="@+id/v_center5"
+                    android:layout_width="1px"
+                    android:layout_height="1px"
+                    android:layout_centerInParent="true" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_above="@id/v_center5"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@id/v_center5"
+                    android:background="@color/image">
+
+                    <View
+                        android:id="@+id/v_cent"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/papercount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/v_cent"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/fontsize_stress" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_cent"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/papercount"
+                        android:textColor="@color/secondary_text" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_above="@id/v_center5"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@id/v_center5"
+                    android:background="@color/image">
+
+                    <View
+                        android:id="@+id/v_cent1"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/contributioncount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/v_cent1"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/fontsize_stress" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_cent1"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/questioncount"
+                        android:textColor="@color/secondary_text" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/v_center5"
+                    android:layout_toLeftOf="@id/v_center5"
+                    android:background="@color/image">
+
+                    <View
+                        android:id="@+id/v_cent2"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/totlescore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/v_cent2"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/fontsize_stress" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_cent2"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/scores_totle"
+                        android:textColor="@color/secondary_text" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/v_center5"
+                    android:layout_toRightOf="@id/v_center5"
+                    android:background="@color/image">
+
+                    <View
+                        android:id="@+id/v_cent3"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/avgscore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/v_cent3"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/fontsize_stress" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/v_cent3"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/scores_avg"
+                        android:textColor="@color/secondary_text" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_usercover"
+                android:layout_width="@dimen/usercover_background_width"
+                android:layout_height="@dimen/usercover_background_width"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/img_cover_ring">
+
+                <ImageView
+                    android:id="@+id/usercover"
+                    android:layout_width="@dimen/usercover_width"
+                    android:layout_height="@dimen/usercover_width"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="@dimen/divi_height"
+                    android:scaleType="fitCenter"/>
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_usercover"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/divi_height"
+                android:gravity="center"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/fontsize_big" />
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.design.widget.CoordinatorLayout>

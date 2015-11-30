@@ -1,0 +1,80 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+
+    <dimen name="fontsize_title">24sp</dimen>
+    <dimen name="fontsize_stress">28sp</dimen>
+    <dimen name="fontsize_big">16sp</dimen>
+    <dimen name="fontsize_normal">14sp</dimen>
+    <dimen name="fontsize_smal">12sp</dimen>
+    <dimen name="fontsize_lable">10sp</dimen>
+
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin_horizontal">13dp</dimen>
+    <dimen name="margin_vertical">13dp</dimen>
+    <dimen name="padding_horizontal">9.5dp</dimen>
+    <dimen name="padding_vertical">9.5dp</dimen>
+    <dimen name="divi_height">7dp</dimen>
+    <dimen name="divi_height2">3.5dp</dimen>
+
+    <dimen name="content_item_width">336dp</dimen>
+
+    <!--login-->
+    <dimen name="button_height">67dp</dimen>
+    <dimen name="button_width">284dp</dimen>
+    <dimen name="button_marginbottom">86dp</dimen>
+
+    <!--main-->
+    <dimen name="readybutton_width">234dp</dimen>
+    <dimen name="readybutton_height">252dp</dimen>
+
+    <!--ready-->
+    <dimen name="paper_cover_width">100.5dp</dimen>
+    <dimen name="paper_cover_height">121.5dp</dimen>
+    <dimen name="userlist_title_height">18dp</dimen>
+    <dimen name="userlist_height">40dp</dimen>
+    <dimen name="readarea_height">138dp</dimen>
+    <!--answer edited-->
+    <dimen name="image_height">97dp</dimen>
+    <dimen name="option_height">35dp</dimen>
+    <!--result checked-->
+    <dimen name="item_user_height">40dp</dimen>
+    <dimen name="my_height">158dp</dimen>
+    <dimen name="ranking_height">50dp</dimen>
+    <dimen name="ranking_width">50dp</dimen>
+    <dimen name="usercover_diameter_big">43dp</dimen>
+    <dimen name="usercover_radii_big">21.5dp</dimen>
+    <dimen name="usercover_diameter_small">28dp</dimen>
+    <dimen name="usercover_radii_small">14dp</dimen>
+    <dimen name="bottom_height">37.5dp</dimen>
+    <dimen name="bottom_btn_padding">19.5dp</dimen>
+    <dimen name="score_paddint_bottom">20dp</dimen>
+    <!--Contribution edited-->
+    <dimen name="item_contribution_height">82.5dp</dimen>
+    <dimen name="item_contributiontitle_height">50dp</dimen>
+    <dimen name="item_contributionattri_height">21dp</dimen>
+    <dimen name="item_contribution_paddingbottom">12dp</dimen>
+    <!--question edited-->
+    <dimen name="questiontype_height">25dp</dimen>
+    <dimen name="questiontopic_height">62dp</dimen>
+    <dimen name="questionimage_height">98dp</dimen>
+    <dimen name="questionsubmit_height">52dp</dimen>
+    <dimen name="question_options_height">33dp</dimen>
+    <dimen name="questionimage_hint_bottom">10dp</dimen>
+
+    <!--usercenter 0.75-->
+    <dimen name="usercover_background_width">115dp</dimen>
+    <dimen name="usercover_width">82dp</dimen>
+    <dimen name="infolayout_height">204dp</dimen>
+    <dimen name="iteminfo_height">113dp</dimen>
+    <dimen name="button_share_height">48dp</dimen>
+
+    <!--ranking edited-->
+    <dimen name="ranklable_width">50dp</dimen>
+    <dimen name="item_ranking_height">56dp</dimen>
+    <dimen name="item_ranking_content_height">40dp</dimen>
+    <dimen name="item_ranking_paddingbottom">13dp</dimen>
+    <dimen name="item_padding_vertical">0.5dp</dimen>
+</resources>

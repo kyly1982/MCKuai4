@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_main"
+    tools:context=".fragment.WaFragment"
+    tools:showIn="@layout/activity_main">
+
+    <RelativeLayout
+        android:id="@+id/wa_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/img_main_shadow">
+
+        <ImageButton
+            android:id="@+id/wa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/btn_wa" />
+    </RelativeLayout>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/hint_getpaper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/wa_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="13dp"
+        android:text="挖一下"
+        android:textColor="@color/secondary_text"
+        android:textSize="12dp" />
+
+</RelativeLayout>

@@ -1,0 +1,318 @@
+<resources>
+    <string name="app_name">麦块我的世界盒子</string>
+    <string name="app_installname">麦块我的世界盒子</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--渠道-->
+    <string name="channel">MCKuaiBox</string>
+
+    <!--通用-->
+    <string name="scores">%1$d分</string>
+    <string name="scores_unit">分</string>
+    <string name="NO.">NO.</string>
+    <string name="flaunt">炫耀一下</string>
+    <string name="onloading_hint">正在加载...</string>
+    <!--tag-->
+    <string name="tag_name">NAME</string>
+    <string name="tag_paper">PAPER</string>
+    <string name="tag_users">USERS</string>
+    <string name="tag_questions">QUESTIONS</string>
+    <string name="tag_score">SCORE</string>
+    <string name="tag_rightquestion">RIGHTQUESTIONSID</string>
+    <string name="tag_wrongquestion">WRONGRUESTIONSID</string>
+    <string name="tag_usercover">USER_COVER</string>
+    <item name="key_USERID" type="id"></item>
+    <item name="key_FORUMID" type="id"></item>
+    <string name="tag_post">TAG_POST</string>
+    <string name="user">USER_OBJECT</string>
+
+    <!--其它-->
+    <string name="exit">是否退出麦块我的世界盒子?</string>
+    <string name="action_exit">退出</string>
+    <!--配置-->
+    <string name="preferences_filename">config</string>
+    <string name="preferences_isFirstBoot">FIRSTBOOT</string>
+    <string name="preferences_token">TOKEN</string>
+    <string name="preferences_tokentime">CERTIFIEDTIME</string>
+    <string name="preferences_tokenexpires">INVALIDTIME</string>
+    <string name="preferences_tokentype">TOKENTYPE</string>
+    <string name="preferences_id">USER_ID</string>
+    <string name="preferences_level">USER_LEVEL</string>
+    <string name="preferences_process">MC_PROCESS</string>
+    <string name="preferences_addr">MC_ADDR</string>
+    <string name="preferences_cover">USER_COVER</string>
+    <string name="preferences_username">USER_NAME</string>
+    <string name="preferences_nickname">USER_NICKNAME</string>
+    <string name="preferences_gender">USER_GENDER</string>
+    <string name="preferences_score">SCORE</string>
+    <string name="preferences_wa_score">WA_SCORE</string>
+    <string name="preferences_wa_answercount">WA_ANSERCOUNT</string>
+    <string name="preferences_wa_uploadcount">WA_UPLOADCOUNT</string>
+    <string name="preferences_wa_scorerank">WA_SCORERANK</string>
+    <string name="preferences_wa_ranking">WA_RANKING</string>
+
+    <!--接口-->
+    <!--测试 http://221.237.152.39:8081/-->
+    <string name="interface_domain">http://wa.mckuai.com/</string>
+    <string name="interface_domain_update">http://api.mckuai.com/</string>
+    <string name="interface_loginserver">interface.do?act=login</string>
+    <!--获取考卷 无参数-->
+    <string name="interface_getquestionlist">interface.do?act=question</string>
+    <!--上报成绩，参数： userId=2&allScore=200&correct=4,5,6,7,8(正确答题id)&error=1,2,3(错误答题id)-->
+    <string name="interface_report">interface.do?act=report</string>
+    <!--获取用户信息，参数userId=2-->
+    <string name="interface_getuserInfo">interface.do?act=userInfo</string>
+    <!--上传问题-->
+    <string name="interface_upload">interface.do?act=uploadQuestion</string>
+    <!--上传图片-->
+    <string name="interface_upload_pic">interface.do?act=uploadImg</string>
+    <!--贡献列表，参数 userId=2&page=1-->
+    <string name="interface_contribution">interface.do?act=uploadList</string>
+    <!--排行榜，参数userId=2&page=1-->
+    <string name="interface_rankinglist">interface.do?act=rankList</string>
+    <!--麦块-->
+    <string name="interface_domainName">http://api.mckuai.com/</string>
+    <!-- 搜索-->
+    <string name="interface_search">interface.do?act=search</string>
+    <string name="interface_forumList">interface.do?act=forumList</string>
+    <string name="interface_postList">interface.do?act=talkList</string>
+    <string name="interface_showPost">interface.do?act=talkOne</string>
+    <!-- 打赏 -->
+    <string name="interface_reward">interface.do?act=daShang</string>
+    <!-- 收藏帖子interface.do?act=toCollect&userId=&talkId= // -->
+    <string name="interface_collectpost">interface.do?act=toCollect</string>
+    <!-- 收藏的帖子接口，参数：id=userid,page=页数 -->
+    <string name="interface_collectpostlist">interface.do?act=collectTalk</string>
+    <!-- 取消收藏帖子interface.do?act=cancleCollect&userId=&talkId= -->
+    <string name="interface_cancle_collectpost">interface.do?act=cancleCollect</string>
+    <!-- 跟帖，跟帖前取参数window.interface.setparameters(),window.interface.getParameters() -->
+    <string name="interface_replypost">interface.do?act=followTalk</string>
+    <!-- 回复楼层 -->
+    <string name="interface_replyfloor">interface.do?act=replyTalk</string>
+    <!-- 上传图片 回图片路径字符串  http://cdn.mckuai.com/xxx.jpg 需加在content 帖子内容后面 -->
+    <string name="interface_uploadpic">group.do?act=uploadImg</string>
+    <string name="interface_sendpost">interface.do?act=addTalk</string>
+    <!-- 是否打赏或收藏 -->
+    <string name="interface_getpostmark">interface.do?act=isCollect</string>
+    <!-- 个人中心接口，参数：id=用户id&page=&type=&messageType=    type{message（消息）,dynamic（动态）,work（作品）}; messageType{ system（系统）,reply（@）} -->
+    <string name="interface_userCenter">interface.do?act=center</string>
+    <!-- 检查更新 -->
+    <string name="interface_checkupgread">interface.do?act=androidUpdate</string>
+    <!--登录-->
+    <string name="interface_qqlogin">interface.do?act=login</string>
+    <!-- 更新位置，参数：id=&addr= -->
+    <string name="interface_updateLocation">interface.do?act=updateAddr</string>
+    <!-- 更新昵称 -->
+    <string name="interface_update_userinfo">interface.do?act=saveUser</string>
+    <!-- 更新头像 -->
+    <string name="interface_update_cover">interface.do?act=headImg</string>
+    <!-- 关注的用户列表接口，参数：id=用户id&page=页数 -->
+    <string name="interface_fellowuserlist">interface.do?act=attentionUser</string>
+    <!-- 关注用户接口，参数：ownerId=当前用户id&otherId=被关注的用户id -->
+    <string name="interface_fellowuser">interface.do?act=attention</string>
+    <!-- 取消关注用户 -->
+    <string name="interface_cancle_fellowuser">/interface.do?act=cancleAttention</string>
+    <!-- 用户是否被关注 -->
+    <string name="interface_getusermark">interface.do?act=isAttention</string>
+    <!-- quick reply -->
+    <string name="interface_quickreply">interface.do?act=addReplyByCenter</string>
+
+
+    <string name="error_pretreatmentres_ponsefalse">预解析失败，原因:%1$s</string>
+    <string name="error_pretreatmentres_nullerror">返回数据为空或长度不足！</string>
+    <string name="error_pretreatmentres_format">预解析失败，原因未知！</string>
+    <string name="error_serverfalse_unknow">服务器返回失败，原因未知！</string>
+    <string name="error_serverfalse">服务器返回失败，原因:%1$s</string>
+    <string name="error_parsefalse">解析返回数据时失败，请重试！</string>
+    <string name="error_requestfalse">请求失败，原因：%1$s</string>
+    <string name="error_userformat_noself">返回的用户信息不正确！</string>
+    <string name="error_serverreturn_unkonw">服务器返回数据格式不正确！</string>
+    <string name="error_loginfaile_mc">登录到服务器失败，原因：%1$s</string>
+    <string name="error_loginfaile_wx">微信授权失败，请重试！</string>
+    <string name="error_code">错误代码：%1$d</string>
+    <string name="error_wxisuninstall">未安装微信，请先安装微信！</string>
+
+    <!-- 菜单-->
+    <string name="contribution">贡献</string>
+    <string name="ranking">排行</string>
+    <string name="time">时间</string>
+    <string name="add">添加</string>
+    <string name="music_enable">开启音乐</string>
+    <string name="music_disable">关闭音乐</string>
+    <string name="addquestion">出题</string>
+    <string name="removeimage">删除图片</string>
+    <string name="createpost">发帖</string>
+
+
+    <!--标题-->
+    <string name="title_main">MC哇</string>
+    <string name="title_contribution">贡献</string>
+    <string name="title_ready">准备</string>
+    <string name="title_answer">答题</string>
+    <string name="title_achievement">成绩</string>
+    <string name="title_makequestion">出题</string>
+    <string name="title_rankinglist">排行榜</string>
+    <string name="title_login">登录</string>
+    <string name="title_usercenter">用户中心</string>
+    <string name="title_post">帖子详情</string>
+
+    <!--登录-->
+    <string name="btn_login">使用QQ账号登录</string>
+    <string name="tv_anonymous">>>随便看看</string>
+    <string name="qq_login">QQ账号登录</string>
+    <string name="wx_login">使用微信账号登录</string>
+    <string name="login_hint1">MC 哇！</string>
+    <string name="login_wa">挖，挖，挖……</string>
+    <string name="hint_loginwx_ready">即将登录到微信…</string>
+    <string name="hint_loginserver">正在登录，请稍候…</string>
+    <string name="hint_canclelogin">已取消登录！</string>
+    <string name="needLoginResult">NEED_RESULT</string>
+
+    <!--主页-->
+    <string name="getpaper">挖一下</string>
+
+    <!-- 准备 -->
+    <string name="paper_hint">Wa~ 你挖到了</string>
+    <string name="paper_seckill">秒杀TA</string>
+    <string name="paper_ready">深呼吸… 预备</string>
+    <string name="paper_name">知识大考验</string>
+    <string name="paper_examinees">Ta们也在答题</string>
+    <string name="paper_more">更多宝藏准备中…</string>
+    <string name="time_countdown">%1$ds</string>
+
+    <!--答题-->
+    <string name="addscore">+%1$d</string>
+    <string name="questionindex">%1$d.</string>
+    <string name="contributor">贡献者：%1$s</string>
+
+    <!--成绩-->
+    <string name="transcend">超越TA</string>
+    <string name="KO">KO 了</string>
+    <string name="regetpaper">再挖一下</string>
+    <string name="uploadresult">上传</string>
+
+    <!--出题-->
+    <string name="selecttype">选择类型</string>
+    <string name="type_choice">选择题</string>
+    <string name="type_judgment">判断题</string>
+    <string name="question_titlehint">这里写题目</string>
+    <string name="worldscount">最多输入%1$d字</string>
+    <string name="worldslimit">限制输入%1$d到%2$d个字</string>
+    <string name="question_addimage_hint">添加图片（可选）</string>
+    <string name="question_imagetoosmall">图片太小了,请重新选择一张!</string>
+    <string name="question_imagetoolarge">图片太大了,请重新选择一张!</string>
+    <string name="question_removeimage_hint">长按删除图片</string>
+    <string name="result_right">正确答案</string>
+    <string name="result_false">错误答案</string>
+    <string name="submitquestion">提交</string>
+    <string name="correct">对</string>
+    <string name="wrong">错</string>
+    <string name="correct_or_wrong">“对”或“错”</string>
+    <string name="upload">上传中，请稍候…</string>
+
+
+    <!--贡献-->
+    <string name="answer_count">%1$d人回答</string>
+    <string name="correct_rate">正确率：%1$d%%</string>
+    <string name="status_auditing">审核中…</string>
+    <string name="status_audit_false">未通过！</string>
+    <string name="rate_notused">还未回答过！</string>
+
+    <!--mcwa个人中心-->
+    <string name="papercount">答题次数</string>
+    <string name="questioncount">贡献题目</string>
+    <string name="scores_totle">总分</string>
+    <string name="scores_avg">平均得分</string>
+    <string name="name">用户名字</string>
+
+    <!-- 麦块个人中心 -->
+    <string name="message">消息</string>
+    <string name="dynamic">动态</string>
+    <string name="post">作品</string>
+    <string name="allMessage">全部</string>
+    <string name="atMessage">\@你</string>
+    <string name="systemMessage">系统</string>
+    <string name="replyYou">回复你的帖子</string>
+    <string name="atYou">\@了你</string>
+    <string name="replyPost">回复了</string>
+    <string name="createPost">创造了</string>
+    <string name="userId">USER_ID</string>
+    <string name="addtoPackage">加入背包</string>
+    <string name="makeChat">和TA聊天</string>
+    <string name="preservation">保存</string>
+
+    <!--排行榜-->
+    <string name="myself">自己</string>
+
+    <!--空数据-->
+    <string name="data_empty">暂时还没有内容，向下动拉刷新！</string>
+
+    <!--缓存-->
+    <string name="cache_root">cache</string>
+    <string name="imagecache_dir">image</string>
+    <string name="cache_rankinglist">rank.dat</string>
+    <string name="jsoncache_dir">json</string>
+    <string name="jsoncache_file">jsonCache.dat</string>
+    <string name="preferences_file">config</string>
+
+    <!-- 更新-->
+    <string name="download_failure">下载新版本失败 !</string>
+    <string name="is_latest_version_label">你已经是最新版本了！</string>
+    <string name="latest_version_title">发现新版本</string>
+    <string name="update_latest_version_title">发现新版本(%1$s), 升级中&#8230;</string>
+    <string name="later_on_wifi">在wifi网络下自动升级！</string>
+    <string name="later_update_tip">Updating&#8230; (Submited when you\'r NOT on Wifi)</string>
+    <string name="update">更新</string>
+    <string name="ignore">忽略</string>
+
+    <!-- 上拉下拉 -->
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="refreshloading">正在加载...</string>
+
+    <!--分享-->
+    <string name="share_url_download">http://wa.mckuai.com/down</string>
+    <string name="share_title_score">MC哇——最好玩的我的世界百科知识问答游戏</string>
+    <string name="share_content_score">我正在玩MC哇，刚刚获得了%1$d分，敢来比一比吗？</string>
+    <string name="share_title_rank">MC哇——最好玩的我的世界百科知识问答游戏</string>
+    <string name="share_content_rank">我正在玩MC哇，我已经是第%1$d名了，敢来比一比吗？</string>
+    <string name="share_title_usercenter">MC哇——最好玩的我的世界百科知识问答游戏</string>
+    <string name="share_content_usercenter">我正在玩MC哇，已经完成了%1$d次，获得了%2$d分，敢来比一比吗？</string>
+
+    <!-- 定位 -->
+    <string name="addrs">定位</string>
+    <string name="gps_addr">GPS定位城市</string>
+    <string name="addr_city">选择城市</string>
+    <string name="addr_city_start">网络定位</string>
+    <string name="addr_hint">请选择</string>
+
+
+    <!-- 社区首页 -->
+    <string name="lastPost">最新</string>
+    <string name="essencePost">精华</string>
+    <string name="topPost">推荐</string>
+
+    <!-- 发帖 -->
+    <string name="select_forum">版块</string>
+    <string name="select_post_type">类型</string>
+    <string name="hint_title">标题</string>
+    <string name="hint_content">内容</string>
+    <string name="publishpost">发帖</string>
+
+    <!--帖子详情-->
+    <string name="btn_showowneronly">只看楼主</string>
+    <string name="post_replypost">跟楼</string>
+    <string name="post_replyfloor">回复楼层</string>
+    <string name="post_unlogin">未登录</string>
+    <string name="needMore">还需输入</string>
+    <string name="tooMuch">已经超出</string>
+    <string name="spare">还可输入</string>
+    <string name="unit">个字</string>
+</resources>

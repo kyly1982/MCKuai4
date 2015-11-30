@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/img_main"
+    android:fitsSystemWindows="true">
+
+
+    <include
+        android:id="@+id/toolbar_layout"
+        layout="@layout/wa_toolbar"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/questionsubmit_height"
+            android:layout_alignParentBottom="true"
+            android:background="@color/green"
+            android:text="@string/submitquestion"
+            android:textColor="@color/primary_text" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/submit">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/padding_vertical"
+                android:paddingRight="@dimen/padding_vertical">
+
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/selecttype"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/questiontype_height"
+                    android:background="@color/item"
+                    android:drawableRight="@mipmap/ic_arrow_right"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/divi_height"
+                    android:paddingRight="@dimen/divi_height"
+                    android:text="@string/selecttype"
+                    android:textColor="@color/primary_text" />
+
+                <RadioGroup
+                    android:id="@+id/rg_questiontype"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/questiontype_height"
+                    android:layout_below="@id/selecttype"
+                    android:layout_marginTop="@dimen/divi_height"
+                    android:layout_marginBottom="@dimen/divi_height"
+                    android:background="@drawable/radiobutton_unchecked"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/type_choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/radiobutton_background"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="@string/type_choice"
+                        android:textColor="@drawable/textcolor_questiontype" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/type_judgment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/radiobutton_background"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/type_judgment"
+                        android:textColor="@drawable/textcolor_questiontype" />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/questiontopic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rg_questiontype"
+                    android:textColorHint="@color/secondary_text"
+                    app:errorEnabled="true"
+                    android:background="@color/white"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_topic"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/questiontopic_height"
+                        android:paddingLeft="@dimen/divi_height"
+                        android:paddingRight="@dimen/divi_height"
+                        android:textColor="@color/secondary_text"
+                        android:textColorHint="@color/secondary_text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:maxLength="50"
+                        android:hint="@string/question_titlehint"
+                        android:background="@color/transparent"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/questionimage"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/questionimage_height"
+                    android:layout_below="@id/questiontopic"
+                    android:background="@drawable/background_newquestion_image"
+                    android:layout_marginTop="@dimen/divi_height"
+                    android:layout_marginBottom="@dimen/divi_height"
+                    android:scaleType="center"
+                    android:padding="1dp"
+                    android:src="@mipmap/img_questionimage" />
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/questionimage_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/questionimage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/questionimage_hint_bottom"
+                    android:textSize="@dimen/fontsize_smal"
+                    android:textColor="@color/secondary_text"
+                    android:text="@string/question_addimage_hint"
+                    />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/option_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/questionimage"
+                    android:paddingLeft="@dimen/divi_height"
+                    android:paddingRight="@dimen/divi_height"
+                    android:textColorHint="@color/primary_text"
+                    android:background="@color/item"
+                    app:errorEnabled="true"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_option_a"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textColorHint="@color/primary_text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:background="@color/transparent"
+                        android:textSize="@dimen/fontsize_normal"
+                        android:maxLength="10"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/option_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/option_a"
+                    android:paddingLeft="@dimen/divi_height"
+                    android:paddingRight="@dimen/divi_height"
+                    android:layout_marginTop="@dimen/divi_height"
+                    android:layout_marginBottom="@dimen/divi_height"
+                    android:textColorHint="@color/primary_text"
+                    android:hint="@string/result_false"
+                    app:errorEnabled="true"
+                    android:background="@color/item"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_option_b"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textColorHint="@color/primary_text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:background="@color/transparent"
+                        android:textSize="@dimen/fontsize_normal"
+                        android:maxLength="10"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/option_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/divi_height"
+                    android:paddingRight="@dimen/divi_height"
+                    android:layout_below="@id/option_b"
+                    android:textColorHint="@color/primary_text"
+                    android:hint="@string/result_false"
+                    app:errorEnabled="true"
+                    android:background="@color/item"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_option_c"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textColorHint="@color/primary_text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:background="@color/transparent"
+                        android:textSize="@dimen/fontsize_normal"
+                        android:maxLength="10" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/option_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/option_c"
+                    android:paddingLeft="@dimen/divi_height"
+                    android:paddingRight="@dimen/divi_height"
+                    android:layout_marginTop="@dimen/divi_height"
+                    android:layout_marginBottom="@dimen/divi_height"
+                    android:textColorHint="@color/primary_text"
+                    android:hint="@string/result_false"
+                    app:errorEnabled="true"
+                    android:background="@color/item"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edt_option_d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text"
+                        android:textColorHint="@color/primary_text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:background="@color/transparent"
+                        android:textSize="@dimen/fontsize_normal"
+                        android:maxLength="10"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <fr.castorflex.android.circularprogressbar.CircularProgressBar
+            android:id="@+id/cpb"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="@dimen/margin_vertical"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:indeterminate="true"
+            app:cpb_color="#FFee44"
+            app:cpb_rotation_speed="1.0"
+            app:cpb_sweep_speed="1.0"
+            app:cpb_stroke_width="4dp"
+            app:cpb_min_sweep_angle="10"
+            app:cpb_max_sweep_angle="300"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/cpb"
+            android:textColor="@color/primary_text"
+            android:text="@string/upload"
+            />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

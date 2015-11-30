@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+    <item
+        android:id="@+id/action_createpost"
+        android:orderInCategory="1"
+        android:title="@string/createpost"
+        android:icon="@drawable/ic_menu_add"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_mcwa_usercenter"
+        android:orderInCategory="1"
+        android:title="个人中心"
+        android:icon="@mipmap/ic_menu_mcwa_usercenter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_mcwa_contribution"
+        android:orderInCategory="2"
+        android:title="贡献"
+        android:icon="@drawable/ic_menu_contribution"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_mcwa_ranking"
+        android:orderInCategory="3"
+        android:icon="@drawable/ic_menu_ranking"
+        android:title="排行榜"
+        app:showAsAction="never" />
+</menu>
