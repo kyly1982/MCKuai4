@@ -82,6 +82,7 @@ public class ExaminationActivity extends BaseActivity implements AnswerFragment.
                 finish();
             }
         });
+        mToolBar.setBackgroundResource(R.color.primary);
     }
 
     public void showNextFragment() {

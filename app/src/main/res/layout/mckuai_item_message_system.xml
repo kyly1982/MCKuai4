@@ -18,7 +18,7 @@
         android:layout_alignParentTop="true"
         />
 
-    <com.mckuai.widget.CircleImageView
+    <com.mckuai.imc.widget.CircleImageView
         android:layout_width="21dp"
         android:layout_height="21dp"
         android:layout_marginLeft="@dimen/com_margin"

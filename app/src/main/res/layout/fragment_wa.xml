@@ -30,6 +30,6 @@
         android:layout_margin="13dp"
         android:text="挖一下"
         android:textColor="@color/secondary_text"
-        android:textSize="12dp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

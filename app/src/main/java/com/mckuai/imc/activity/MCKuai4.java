@@ -128,7 +128,7 @@ public class MCKuai4 extends Application {
         SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences_file), 0);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(getString(R.string.preferences_isFirstBoot),false);
-        if (null != token && token.isTokenSurvival()){
+        if (null != token){
             editor.putInt(getString(R.string.preferences_tokentype),token.getType());
             editor.putLong(getString(R.string.preferences_tokentime), token.getBirthday());
             editor.putLong(getString(R.string.preferences_tokenexpires),token.getExpires());
@@ -214,5 +214,12 @@ public class MCKuai4 extends Application {
 
     public void playMusic(){
 
+    }
+
+    public void logout(){
+        token.setExpires(0);
+        saveProfile();
+        token = null;
+        user = null;
     }
 }

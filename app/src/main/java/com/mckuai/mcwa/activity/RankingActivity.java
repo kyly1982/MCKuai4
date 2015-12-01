@@ -70,6 +70,7 @@ public class RankingActivity extends BaseActivity implements UltimateRecyclerVie
                 finish();
             }
         });
+        mToolBar.setBackgroundResource(R.color.primary);
     }
 
     private void initView() {

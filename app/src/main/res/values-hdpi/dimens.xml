@@ -2,7 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
 
 
-    <dimen name="fontsize_title">24sp</dimen>
+    <dimen name="fontsize_title">18sp</dimen>
     <dimen name="fontsize_stress">28sp</dimen>
     <dimen name="fontsize_big">16sp</dimen>
     <dimen name="fontsize_normal">14sp</dimen>

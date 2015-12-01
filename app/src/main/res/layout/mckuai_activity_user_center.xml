@@ -29,6 +29,17 @@
             android:scaleType="center"
             android:src="@drawable/btn_return_selector" />
 
+        <ImageView
+            android:id="@+id/btn_Logout"
+            android:layout_width="@dimen/button_left_width"
+            android:layout_height="@dimen/titlebar_button_height"
+            android:layout_marginTop="@dimen/com_margin"
+            android:clickable="true"
+            android:paddingRight="@dimen/com_margin"
+            android:paddingLeft="@dimen/padding_right_button_left"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/btn_logout"/>
+
         <RelativeLayout
             android:id="@+id/rl_userInfo"
             android:layout_width="match_parent"

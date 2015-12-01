@@ -281,6 +281,7 @@ public class QuestionActivity extends BaseActivity implements RadioGroup.OnCheck
                 finish();
             }
         });
+        mToolBar.setBackgroundResource(R.color.primary);
     }
 
 

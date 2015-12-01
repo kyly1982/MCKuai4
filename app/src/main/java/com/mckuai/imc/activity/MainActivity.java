@@ -8,14 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.widget.Toast;
-
-import com.mckuai.imc.BuildConfig;
 import com.mckuai.imc.R;
 import com.mckuai.imc.fragment.ForumFragment;
 import com.mckuai.imc.fragment.WaFragment;
@@ -30,9 +25,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.umeng.message.PushAgent;
-import com.umeng.message.UmengRegistrar;
-
-import java.lang.reflect.Method;
 import java.net.URLEncoder;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -88,9 +80,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             mToolbar.setElevation(0);
         }
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setSubtitle("MC哇");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mToolbar.setNavigationOnClickListener(this);
+        mToolbar.setBackgroundResource(R.color.primary);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
@@ -210,16 +203,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (null == mCommunityFragment){
                     mCommunityFragment = new ForumFragment();
                     isShowMCWa = false;
-                    mFM.beginTransaction().replace(R.id.fragment, mCommunityFragment,"communityfragment").commit();
-                    getSupportActionBar().setSubtitle("麦块社区");
+                    mFM.beginTransaction().replace(R.id.fragment, mCommunityFragment, "communityfragment").commit();
+                    mToolbar.setBackgroundResource(R.color.colorPrimary);
+                    fab.setBackgroundTintList(getResources().getColorStateList(R.color.fab_forum_selector));
                 } else {
                     isShowMCWa = !isShowMCWa;
                     if (isShowMCWa){
                         mFM.beginTransaction().hide(mCommunityFragment).commit();
-                        getSupportActionBar().setSubtitle("MC哇");
+                        mToolbar.setBackgroundResource(R.color.primary);
+                        fab.setBackgroundTintList(getResources().getColorStateList(R.color.fab_forum_selector));
+                        fab.setImageResource(R.mipmap.ic_forum);
                     } else {
                         mFM.beginTransaction().show(mCommunityFragment).commit();
-                        getSupportActionBar().setSubtitle("麦块社区");
+                        mToolbar.setBackgroundResource(R.color.colorPrimary);
+                        fab.setBackgroundTintList(getResources().getColorStateList(R.color.fab_wa_selector));
+                        fab.setImageResource(R.mipmap.ic_wa);
                     }
                 }
                 setMenuItemVisible(mMenu);
@@ -265,8 +263,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             public void onClick(View v) {
                 mApplication.saveProfile();
 //                mApplication.stopMusic();
-//                System.exit(0);
                 MainActivity.this.finish();
+                System.exit(0);
             }
         });
         return true;

@@ -136,6 +136,7 @@ public class UserCenterActivity extends BaseActivity implements Toolbar.OnMenuIt
         super.initToolBar();
         mTitle.setText("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolBar.setBackgroundResource(R.color.primary);
         mToolBar.setOnMenuItemClickListener(this);
         mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

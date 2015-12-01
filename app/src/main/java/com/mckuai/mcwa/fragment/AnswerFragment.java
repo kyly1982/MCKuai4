@@ -240,7 +240,6 @@ public class AnswerFragment extends BaseFragment implements View.OnClickListener
         mScore_question.setText(question.getScore() + "");
         mScore_question.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.Shake).playOn(mScore_question);*/
-        wrongQuestions.add(question.getId());
         String rightAnswer = question.getRightAnswer();
         if (mOption_A.getText().equals(rightAnswer)) {
             mOption_A.setBackgroundColor(getResources().getColor(R.color.green));

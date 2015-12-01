@@ -134,7 +134,7 @@ public class NetInterface {
                         }
                     }
                     if (null != userRank && !userRank.isEmpty() && 4 > userRank.size()) {
-                        switch (users.size()) {
+                        switch (userRank.size()) {
                             case 1:
                                 if (userRank.get(0).getId() == userId) {
                                     listener.onSuccess(userRank.get(0), null, null);

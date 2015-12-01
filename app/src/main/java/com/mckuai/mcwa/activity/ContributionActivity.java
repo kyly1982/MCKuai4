@@ -67,6 +67,7 @@ public class ContributionActivity extends BaseActivity implements Toolbar.OnMenu
                 finish();
             }
         });
+        mToolBar.setBackgroundResource(R.color.primary);
     }
 
     private void loadData() {

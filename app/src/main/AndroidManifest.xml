@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!--suppress DeprecatedClassUsageInspection -->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
@@ -37,7 +37,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,28 +47,50 @@
         </activity>
         <activity
             android:name="com.mckuai.mcwa.activity.ContributionActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.ExaminationActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.QuestionActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.RankingActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.UserCenterActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.UserCenter" />
+        <activity
+            android:name=".activity.UserCenter"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".activity.ChangeInfoActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.LocationActivity" />
-        <activity android:name=".activity.PostActivity" />
-        <activity android:name=".activity.PublishPostActivity" />
-        <activity android:name=".activity.ModifyNameActivity"/>
+        <activity
+            android:name=".activity.ChangeInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LocationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PostActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.PublishPostActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.ModifyNameActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
 
         <!-- 友盟相关 -->
         <activity
@@ -88,7 +111,7 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -102,8 +125,7 @@
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
         <!-- 友盟统计 key -->
         <meta-data
             android:name="UMENG_APPKEY"
@@ -116,19 +138,20 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="8BeV0Eu1X94jbXQgFckSaL8L" />
-        <service android:name="com.baidu.location.f" android:enabled="true" android:process=":remote">
-        </service>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"></service>
 
 
         <!-- 友盟推送监听通知点击或者忽略处理的广播 -->
         <receiver
             android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
-            android:exported="false" >
-        </receiver>
+            android:exported="false"></receiver>
         <!-- 友盟推送监听开机运行、网络连接变化、卸载的广播 -->
         <receiver
             android:name="com.umeng.message.SystemReceiver"
-            android:process=":push" >
+            android:process=":push">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -143,7 +166,7 @@
         <!-- 友盟推送监听宿主选举的广播 -->
         <receiver
             android:name="com.umeng.message.ElectionReceiver"
-            android:process=":push" >
+            android:process=":push">
             <intent-filter>
                 <action android:name="org.agoo.android.intent.action.ELECTION_RESULT_V4" />
                 <category android:name="umeng" />
@@ -153,12 +176,12 @@
         <!-- 【应用包名】字符串需要替换成本应用的应用包名 -->
         <receiver
             android:name="com.umeng.message.RegistrationReceiver"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.mckuai.imc.intent.action.COMMAND" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.umeng.message.UmengMessageBootReceiver" >
+        <receiver android:name="com.umeng.message.UmengMessageBootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -167,9 +190,9 @@
         <!-- 【应用包名】字符串需要替换成本应用的应用包名 -->
         <service
             android:name="com.umeng.message.UmengService"
-            android:label="PushService"
             android:exported="true"
-            android:process=":push" >
+            android:label="PushService"
+            android:process=":push">
             <intent-filter>
                 <action android:name="com.mckuai.imc.intent.action.START" />
             </intent-filter>
@@ -183,14 +206,15 @@
         </service>
 
         <!-- Umeng的消息接收服务 -->
-        <service android:name="com.umeng.message.UmengIntentService"
+        <service
+            android:name="com.umeng.message.UmengIntentService"
             android:process=":push" />
 
         <!-- Umeng的消息路由服务 -->
         <service
             android:name="com.umeng.message.UmengMessageIntentReceiverService"
-            android:process=":push"
-            android:exported="true" >
+            android:exported="true"
+            android:process=":push">
             <intent-filter>
                 <action android:name="org.android.agoo.client.MessageReceiverService" />
             </intent-filter>
@@ -200,32 +224,32 @@
         </service>
 
         <!--UM v2.4.1添加的Service，Umeng的消息接收后的处理服务 -->
-        <service android:name="com.umeng.message.UmengMessageCallbackHandlerService"
+        <service
+            android:name="com.umeng.message.UmengMessageCallbackHandlerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.umeng.messge.registercallback.action" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.umeng.message.unregistercallback.action"/>
+                <action android:name="com.umeng.message.unregistercallback.action" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.umeng.message.message.handler.action"/>
+                <action android:name="com.umeng.message.message.handler.action" />
             </intent-filter>
             <intent-filter>
-                <action android:name="com.umeng.message.autoupdate.handler.action"/>
+                <action android:name="com.umeng.message.autoupdate.handler.action" />
             </intent-filter>
         </service>
 
         <!-- UM V1.3.0添加的service，负责下载通知的资源 -->
         <service android:name="com.umeng.message.UmengDownloadResourceService" />
+
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="55127cc0fd98c5421700098f" >
-        </meta-data>
+            android:value="55127cc0fd98c5421700098f"></meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
-            android:value="ee7b5f0cb297eddbd18300bd62f63d81" >
-        </meta-data>
+            android:value="ee7b5f0cb297eddbd18300bd62f63d81"></meta-data>
     </application>
 
 </manifest>

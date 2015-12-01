@@ -3,10 +3,14 @@
     <color name="colorPrimary">#38CA44</color>
     <color name="colorPrimaryDark">#289140</color>
     <color name="colorAccent">#FF4081</color>
+    
+    <!--fab-->
+    <color name="fab_forum">#5CB525</color>
+    <color name="fab_wa">#7247B1</color>
 
 
     <!--mcwa-->
-    <color name="primary">#391A56</color>
+    <color name="primary">#362057</color>
     <color name="primary_dark">#381B55</color>
     <color name="primary_light">#D1C4E9</color>
     <color name="accent">#E040FB</color>
