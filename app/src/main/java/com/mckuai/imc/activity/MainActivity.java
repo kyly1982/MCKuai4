@@ -11,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.mckuai.imc.BuildConfig;
 import com.mckuai.imc.R;
 import com.mckuai.imc.fragment.ForumFragment;
 import com.mckuai.imc.fragment.WaFragment;
@@ -139,7 +141,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void checkUpgrade() {
         updateService = AppUpdateService.getAppUpdate(this);
         String url = getString(R.string.interface_domain_update) + getString(R.string.interface_checkupgread);
-        url = url + "&pushMan=" + URLEncoder.encode(getString(R.string.channel));
+//        url = url + "&pushMan=" + URLEncoder.encode(getString(R.string.channel));
+        url += "&pushMan=" + URLEncoder.encode(BuildConfig.FLAVOR);
         updateService.checkLatestVersionQuiet(url, new SimpleJSONParser());
         isCheckUpadte = true;
     }

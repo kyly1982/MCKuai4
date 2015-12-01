@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">麦块我的世界盒子</string>
 
-    <!--渠道-->
-    <string name="channel_mckuai">MCKUAI_MCKUAI</string>
-
     <!--通用-->
     <string name="scores">%1$d分</string>
     <string name="scores_unit">分</string>

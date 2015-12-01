@@ -14,15 +14,57 @@ android {
     }
     buildTypes {
         release {
+            //不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //是否混淆代码
             minifyEnabled false
+            //zip对齐
+            zipAlignEnabled true
+            //移除无用资源文件
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
     sourceSets {
         main {
-            jniLibs.srcDirs = ['libs']
+            jniLibs.srcDirs = ['src/main/jniLibs']
         }
+    }
+
+    //针对不同的渠道打包
+    productFlavors {
+        mckuai_mckuai {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_mckuai",APP_NAME:"麦块我的世界盒子"]
+        }
+
+        mckuai_xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_xiaomi",APP_NAME: "麦块我的世界盒子"]
+        }
+
+        mckuai_360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_360",APP_NAME: "麦块我的世界盒子"]
+        }
+
+        mckuai_wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_wandoujia",APP_NAME: "麦块我的世界盒子"]
+        }
+
+        mckuai_baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_baidu",APP_NAME: "麦块"]
+        }
+
+        mckuai_tencent {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_tencent",APP_NAME: "" +
+                    ""]
+        }
+    }
+
+    //解决lint报错的代码
+    lintOptions {
+        abortOnError false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
     }
 }
 
