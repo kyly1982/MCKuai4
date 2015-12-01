@@ -68,27 +68,34 @@
 
         <activity
             android:name=".activity.UserCenter"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".activity.ChangeInfoActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LoginActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LocationActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.PostActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.PublishPostActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.ModifyNameActivity"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 
@@ -133,7 +140,7 @@
         <!-- 友盟统计渠道 -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="@string/channel" />
+            android:value="@string/channel_mckuai" />
         <!-- 百度定位 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"

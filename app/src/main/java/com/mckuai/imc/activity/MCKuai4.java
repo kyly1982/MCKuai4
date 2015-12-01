@@ -32,19 +32,16 @@ public class MCKuai4 extends Application {
     public static Gson gson;
     public JsonCache cache;
     public boolean isFirstBoot = true;
-    public ImageLoader loader;
 
     private final int IMAGE_POOL_SIZE = 3;// 线程池数量
     private final int CONNECT_TIME = 15 * 1000;// 连接时间
     private final int TIME_OUT = 30 * 1000;// 超时时间
 
     private String mCacheDir;
-    private MediaPlayer mPlayer;
     private DisplayImageOptions circleOption;
     private DisplayImageOptions normalOption;
 
     public Token token;
-    public Tencent tencent;
 
     @Override
     public void onCreate() {

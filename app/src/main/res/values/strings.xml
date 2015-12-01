@@ -1,13 +1,8 @@
 <resources>
-    <string name="app_name">麦块</string>
-    <string name="app_installname">麦块我的世界盒子</string>
-    <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">麦块我的世界盒子</string>
 
     <!--渠道-->
-    <string name="channel">MCKUAI_MCKUAI</string>
+    <string name="channel_mckuai">MCKUAI_MCKUAI</string>
 
     <!--通用-->
     <string name="scores">%1$d分</string>
