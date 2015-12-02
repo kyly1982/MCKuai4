@@ -43,7 +43,7 @@ android {
         }
 
         mckuai_360 {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_360",APP_NAME: "麦块我的世界盒子"]
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_360",APP_NAME: "麦块"]
         }
 
         mckuai_wandoujia {
@@ -55,17 +55,10 @@ android {
         }
 
         mckuai_tencent {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_tencent",APP_NAME: "" +
-                    ""]
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "mckuai_tencent",APP_NAME: "麦块"]
         }
     }
 
-    //解决lint报错的代码
-    lintOptions {
-        abortOnError false
-        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
-        disable 'MissingTranslation'
-    }
 }
 
 

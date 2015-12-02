@@ -37,7 +37,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,55 +47,55 @@
         </activity>
         <activity
             android:name="com.mckuai.mcwa.activity.ContributionActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.ExaminationActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.QuestionActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.RankingActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.mckuai.mcwa.activity.UserCenterActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".activity.UserCenter"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".activity.ChangeInfoActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LoginActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LocationActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.PostActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.PublishPostActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.ModifyNameActivity"
-            android:label="@string/app_name"
+            android:label="${APP_NAME}"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
 

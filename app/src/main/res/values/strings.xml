@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">麦块我的世界盒子</string>
 
     <!--通用-->
     <string name="scores">%1$d分</string>
