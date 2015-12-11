@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -41,12 +40,8 @@ import com.mckuai.imc.R;
 import com.mckuai.imc.bean.MCUser;
 import com.mckuai.imc.bean.Post;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.sso.QZoneSsoHandler;
-import com.umeng.socialize.sso.UMQQSsoHandler;
-import com.umeng.socialize.weixin.controller.UMWXHandler;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -124,11 +119,9 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 //		 savedInstanceState.putString("PAGE_ID", getString(R.string.post));
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mckuai_activity_post);
-//		initSlidingMenu();
 		mClient = new AsyncHttpClient();
 		post = (Post) getIntent().getSerializableExtra(getString(R.string.tag_post));
 		mApplication = MCKuai4.getInstance();
-		mHandler.sendMessageDelayed(mHandler.obtainMessage(5), 1000);
 		mShareService = UMServiceFactory.getUMSocialService("com.umeng.share");
 	}
 
@@ -933,7 +926,6 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 		{
 			if (2000 < context.length())
 			{
-				// showNotification("你输入的字太多啦，跟帖最多只能输入2000字");
 				Toast.makeText(PostActivity.this, "你输入的字太多啦，跟帖最多只能输入2000字", Toast.LENGTH_LONG).show();
 				return false;
 			}
@@ -941,7 +933,6 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 		{
 			if (150 < context.length())
 			{
-				// showNotification("你输入的字太多啦，回复最多只能输入150字");
 				Toast.makeText(PostActivity.this, "你输入的字太多啦，回复最多只能输入150字", Toast.LENGTH_LONG).show();
 				return false;
 			}
@@ -968,7 +959,6 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 				replyPost();
 			} else
 			{
-				// showNotification("未登录，不能发布帖子");
 				Toast.makeText(PostActivity.this, "未登录，不能发布帖子", Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -979,7 +969,6 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 				addPic(data);
 			} else
 			{
-				// showNotification("未选择图片！");
 				Toast.makeText(PostActivity.this, "未选择图片！", Toast.LENGTH_LONG).show();
 			}
 			break;
@@ -1187,9 +1176,6 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 			case 3:
 				//callLogin();
 				break;
-			case 5:
-				configPlatforms();
-				break;
 
 			case 6:
 				addInterface();
@@ -1278,12 +1264,19 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 		{
 			return;
 		}
-		/*mShareService.setShareContent(post.getTalkTitle());
+//		String url = "http://www.mckuai.com/thread-" + post.getId() + ".html";
+		String title = getString(R.string.appname_mckuai);
+		String url = getString(R.string.share_post,post.getId());
+		String context = post.getTalkTitle();
+		UMImage image;
 		if (null != post.getMobilePic() && 10 < post.getMobilePic().length())
 		{
-			mShareService.setShareMedia(new UMImage(this, post.getMobilePic()));
-		}*/
-		mShareService.openShare(this, false);
+			image = new UMImage(this, post.getMobilePic());
+		} else
+		{
+			image = new UMImage(this, R.drawable.icon_share_default);
+		}
+		mApplication.share(this,title,context,url,image);
 	}
 
 	private void getPostMark()
@@ -1346,55 +1339,6 @@ public class PostActivity extends BaseActivity implements OnClickListener, TextW
 		{
 			btn_collect.setBackgroundResource(R.drawable.btn_post_collect_selector);
 		}
-	}
-
-	private void configPlatforms()
-	{
-		Log.e(TAG,"configPlatforms");
-		String targetUrl = "http://www.mckuai.com/thread-" + post.getId() + ".html";
-		String title = "麦块for我的世界盒子";
-		String context = post.getTalkTitle();
-		UMImage image;
-		if (null != post.getMobilePic() && 10 < post.getMobilePic().length())
-		{
-			image = new UMImage(this, post.getMobilePic());
-		} else
-		{
-			image = new UMImage(this, R.drawable.icon_share_default);
-		}
-		// 添加内容和图片
-		mShareService.setShareContent(context);
-		mShareService.setShareMedia(image);
-
-		String appID_QQ = "101155101";
-		String appAppKey_QQ = "78b7e42e255512d6492dfd135037c91c";
-		// 添加qq
-		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(this, appID_QQ, appAppKey_QQ);
-		qqSsoHandler.setTargetUrl(targetUrl);
-		qqSsoHandler.setTitle(title);
-		qqSsoHandler.addToSocialSDK();
-		// 添加QQ空间参数
-		QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(this, appID_QQ, appAppKey_QQ);
-		qZoneSsoHandler.setTargetUrl(targetUrl);
-		qZoneSsoHandler.addToSocialSDK();
-
-		String appIDWX = "wx49ba2c7147d2368d";
-		String appSecretWX = "85aa75ddb9b37d47698f24417a373134";
-		// 添加微信
-		UMWXHandler wxHandler = new UMWXHandler(this, appIDWX, appSecretWX);
-		wxHandler.setTargetUrl(targetUrl);
-		wxHandler.setTitle(title);
-		wxHandler.showCompressToast(false);
-		wxHandler.addToSocialSDK();
-		// 添加微信朋友圈
-		UMWXHandler wxCircleHandler = new UMWXHandler(this, appIDWX, appSecretWX);
-		wxCircleHandler.setToCircle(true);
-		wxCircleHandler.setTargetUrl(targetUrl);
-		wxHandler.showCompressToast(false);
-		wxCircleHandler.setTitle(title);
-		wxCircleHandler.addToSocialSDK();
-		// 移除多余平台
-		mShareService.getConfig().removePlatform(SHARE_MEDIA.TENCENT, SHARE_MEDIA.SINA);
 	}
 
 }

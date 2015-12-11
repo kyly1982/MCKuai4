@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,7 +82,13 @@ public class ContributionActivity extends BaseActivity implements Toolbar.OnMenu
             mAdapter = new ContributionAdapter(this);
             mList.setAdapter(mAdapter);
         }
-        mAdapter.setData(mQuestions);
+        if (null != mQuestions && !mQuestions.isEmpty() && 0 != mQuestions.size()) {
+            Log.e("size","size="+mQuestions.size());
+            mAdapter.setData(mQuestions);
+        } else {
+            mList.showEmptyView();
+            Log.e("size", "000000");
+        }
     }
 
     @Override
@@ -131,5 +138,6 @@ public class ContributionActivity extends BaseActivity implements Toolbar.OnMenu
     public void onFalse(String msg) {
         MobclickAgent.onEvent(this,"reqCL_F");
         feedback(false,false);
+        showData();
     }
 }

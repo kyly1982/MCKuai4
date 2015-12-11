@@ -1,9 +1,12 @@
 package com.mckuai.imc.activity;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.mckuai.imc.R;
@@ -18,8 +21,16 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
-import com.tencent.tauth.Tencent;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.bean.SocializeEntity;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.listener.SocializeListeners;
+import com.umeng.socialize.media.QZoneShareContent;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.QZoneSsoHandler;
+import com.umeng.socialize.weixin.controller.UMWXHandler;
+import com.umeng.socialize.weixin.media.WeiXinShareContent;
 
 import java.io.File;
 
@@ -32,6 +43,8 @@ public class MCKuai4 extends Application {
     public static Gson gson;
     public JsonCache cache;
     public boolean isFirstBoot = true;
+    public com.umeng.socialize.controller.UMSocialService shareService;
+
 
     private final int IMAGE_POOL_SIZE = 3;// 线程池数量
     private final int CONNECT_TIME = 15 * 1000;// 连接时间
@@ -40,6 +53,11 @@ public class MCKuai4 extends Application {
     private String mCacheDir;
     private DisplayImageOptions circleOption;
     private DisplayImageOptions normalOption;
+
+    private boolean isDetected = false;
+    private boolean isQQInstalled = false;
+    private boolean isWXInstalled = false;
+
 
     public Token token;
 
@@ -52,7 +70,7 @@ public class MCKuai4 extends Application {
 
     @Override
     public void onTerminate() {
-        if (null != cache){
+        if (null != cache) {
             cache.saveCacheFile();
         }
         super.onTerminate();
@@ -65,13 +83,13 @@ public class MCKuai4 extends Application {
 
     public void init() {
         gson = new Gson();
-        user =readPreference();
+        user = readPreference();
         initImageLoader();
+        shareService = UMServiceFactory.getUMSocialService("com.mckuai.imc");
         MobclickAgent.openActivityDurationTrack(false);
         MobclickAgent.updateOnlineConfig(this);
         cache = new JsonCache(this);
     }
-
 
 
     private void initImageLoader() {
@@ -121,17 +139,17 @@ public class MCKuai4 extends Application {
         return user;
     }
 
-    public void saveProfile(){
+    public void saveProfile() {
         SharedPreferences preferences = getSharedPreferences(getString(R.string.preferences_file), 0);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(getString(R.string.preferences_isFirstBoot),false);
-        if (null != token){
-            editor.putInt(getString(R.string.preferences_tokentype),token.getType());
+        editor.putBoolean(getString(R.string.preferences_isFirstBoot), false);
+        if (null != token) {
+            editor.putInt(getString(R.string.preferences_tokentype), token.getType());
             editor.putLong(getString(R.string.preferences_tokentime), token.getBirthday());
-            editor.putLong(getString(R.string.preferences_tokenexpires),token.getExpires());
+            editor.putLong(getString(R.string.preferences_tokenexpires), token.getExpires());
             editor.putString(getString(R.string.preferences_token), token.getToken());
         }
-        if (null != user && user.isUserValid()){
+        if (null != user && user.isUserValid()) {
             editor.putInt(getString(R.string.preferences_id), user.getId());          //id
             editor.putString(getString(R.string.preferences_username), user.getName() + "");//openid
             editor.putString(getString(R.string.preferences_nickname), user.getNike() + "");//显示名
@@ -174,13 +192,13 @@ public class MCKuai4 extends Application {
         return mCacheDir;
     }
 
-    public boolean isLogin(){
-        return  (null != user && user.isUserValid());
+    public boolean isLogin() {
+        return (null != user && user.isUserValid());
     }
 
-    public boolean isTokenValid(){
+/*    public boolean isTokenValid() {
         return (null != token && token.isTokenSurvival());
-    }
+    }*/
 
     public DisplayImageOptions getCircleOption() {
         if (null == circleOption) {
@@ -189,7 +207,7 @@ public class MCKuai4 extends Application {
         return circleOption;
     }
 
-    public DisplayImageOptions getNormalOption(){
+    public DisplayImageOptions getNormalOption() {
         if (null == normalOption) {
             normalOption = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).build();
         }
@@ -197,26 +215,147 @@ public class MCKuai4 extends Application {
     }
 
 
-    public boolean isMusicPlaying(){
+    public boolean isMusicPlaying() {
         return true;
     }
 
-    public boolean switchPlayPauseMusic(){
+    public boolean switchPlayPauseMusic() {
         return true;
     }
 
-    public void stopMusic(){
+    public void stopMusic() {
 
     }
 
-    public void playMusic(){
+    public void playMusic() {
 
     }
 
-    public void logout(){
+    public void logout() {
         token.setExpires(0);
         saveProfile();
         token = null;
         user = null;
+    }
+
+
+
+    public void share(@NonNull final Context context, String title, String content, String url, UMImage image) {
+        switch (detectedSocialAPP(context)){
+            case 1:
+                shareToQQZone(context,title,content,url,image);
+                break;
+            case 2:
+                shareToWXCircle(context,title,content,url,image);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    private void shareToQQZone(@NonNull final Context context, String title, String content, String url, UMImage image) {
+        QZoneShareContent qzone = new QZoneShareContent();
+        qzone.setTitle(title);
+        qzone.setShareContent(content);
+        qzone.setTargetUrl(url);
+        qzone.setAppWebSite("http://www.mckuai.com/");
+        if (null != image) {
+            qzone.setShareImage(image);
+        }
+        shareService.setShareMedia(qzone);
+        shareService.postShare(context, SHARE_MEDIA.QZONE, new SocializeListeners.SnsPostListener() {
+            @Override
+            public void onStart() {
+                Toast.makeText(context, "开始分享.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, SocializeEntity socializeEntity) {
+                String msg;
+                switch (i) {
+                    case 200:
+                        msg = "分享成功！";
+                        break;
+                    case -101:
+                        msg = "分享失败，没有授权！";
+                        break;
+                    default:
+                        msg = "分享失败[code=" + i + "]!";
+                        break;
+                }
+                Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+    private void shareToWXCircle(@NonNull final Context context,String title, String content, String url, UMImage image) {
+        WeiXinShareContent wx = new WeiXinShareContent();
+        wx.setTitle(title);
+        wx.setShareContent(content);
+        wx.setTargetUrl(url);
+        wx.setAppWebSite("http://www.mckuai.com/");
+        if (null != image) {
+            wx.setShareImage(image);
+        }
+        shareService.setShareMedia(wx);
+        shareService.postShare(context, SHARE_MEDIA.WEIXIN_CIRCLE, new SocializeListeners.SnsPostListener() {
+            @Override
+            public void onStart() {
+                Toast.makeText(context, "开始分享.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onComplete(SHARE_MEDIA share_media, int i, SocializeEntity socializeEntity) {
+                String msg;
+                switch (i) {
+                    case 200:
+                        msg = "分享成功！";
+                        break;
+                    case -101:
+                        msg = "分享失败，没有授权！";
+                        break;
+                    default:
+                        msg = "分享失败[code=" + i + "]!";
+                        break;
+                }
+                Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private int detectedSocialAPP(Context context) {
+        if (!isDetected) {
+            String appID_WX = "wx49ba2c7147d2368d";
+            String appSecret_WX = "85aa75ddb9b37d47698f24417a373134";
+            String appId_QQ = "101155101";
+            String appKey_QQ = "78b7e42e255512d6492dfd135037c91c";
+
+            QZoneSsoHandler qq = new QZoneSsoHandler((Activity) context, appId_QQ, appKey_QQ);
+            if (qq.isClientInstalled()) {
+                isDetected = true;
+                isQQInstalled = true;
+                qq.addToSocialSDK();
+            } else {
+                UMWXHandler wx = new UMWXHandler((Activity) context, appID_WX, appSecret_WX);
+                if (wx.isClientInstalled()) {
+                    wx.setToCircle(true);
+                    isDetected = true;
+                    isWXInstalled = true;
+                    wx.addToSocialSDK();
+                }
+            }
+        }
+
+        if (isDetected) {
+            if (isQQInstalled) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } else {
+            return 0;
+        }
     }
 }

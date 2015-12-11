@@ -20,11 +20,8 @@ import com.mckuai.imc.widget.CircleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.sso.QZoneSsoHandler;
-import com.umeng.socialize.sso.UMQQSsoHandler;
 import com.umeng.socialize.sso.UMSsoHandler;
 import com.umeng.socialize.weixin.controller.UMWXHandler;
 
@@ -43,15 +40,15 @@ public class UserCenterActivity extends BaseActivity implements Toolbar.OnMenuIt
     private DisplayImageOptions options;
 
     private boolean isLoading = false;
-    private com.umeng.socialize.controller.UMSocialService mShareService;
+//    private com.umeng.socialize.controller.UMSocialService mShareService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wa_activity_usercenter);
         options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).displayer(new CircleBitmapDisplayer()).build();
-        mShareService = UMServiceFactory.getUMSocialService("com.umeng.share");
-        configPlatforms();
+//        mShareService = UMServiceFactory.getUMSocialService("com.umeng.share");
+//        configPlatforms();
     }
 
     @Override
@@ -74,7 +71,7 @@ public class UserCenterActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        UMSsoHandler ssoHandler = mShareService.getConfig().getSsoHandler(requestCode);
+        UMSsoHandler ssoHandler = mApplication.shareService.getConfig().getSsoHandler(requestCode);
         if (null != ssoHandler) {
             ssoHandler.authorizeCallBack(requestCode, resultCode, data);
         }
@@ -102,13 +99,20 @@ public class UserCenterActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     private void share(Bitmap bitmap) {
         String content = getString(R.string.share_content_usercenter, mApplication.user.getAnswerNum(), mApplication.user.getAllScore());
-        mShareService.setAppWebSite(getString(R.string.share_url_download));
+        String title = getString(R.string.share_title_rank);
+        String url = getString(R.string.share_url_download);
+        UMImage image = null;
+        if (null != bitmap) {
+            image = new UMImage(this, bitmap);
+        }
+        mApplication.share(this, title, content, url, image);
+    /*    mShareService.setAppWebSite(getString(R.string.share_url_download));
         mShareService.setShareContent(content);
         if (null != bitmap) {
             UMImage image = new UMImage(this, bitmap);
             mShareService.setShareImage(image);
         }
-        mShareService.openShare(this, false);
+        mShareService.openShare(this, false);*/
     }
 
     private void showData() {
@@ -228,34 +232,34 @@ public class UserCenterActivity extends BaseActivity implements Toolbar.OnMenuIt
 
         String title = getString(R.string.share_title_rank);
         String url = getString(R.string.share_url_download);
-        String appID_QQ = "1104907496";
-        String appAppKey_QQ = "DbdC0Qvfkj4yOLsG";
+        String appID_QQ = "101155101";
+        String appAppKey_QQ = "78b7e42e255512d6492dfd135037c91c";
         // 添加qq
-        UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(this, appID_QQ, appAppKey_QQ);
+/*        UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(this, appID_QQ, appAppKey_QQ);
         qqSsoHandler.setTargetUrl(url);
         qqSsoHandler.setTitle(title);
-        qqSsoHandler.addToSocialSDK();
+        qqSsoHandler.addToSocialSDK();*/
         // 添加QQ空间参数
         QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(this, appID_QQ, appAppKey_QQ);
-        qZoneSsoHandler.setTargetUrl(url);
+//        qZoneSsoHandler.setTargetUrl(url);
         qZoneSsoHandler.addToSocialSDK();
 
-        String appIDWX = "wxc49b6a0e3c78364d";
-        String appSecretWX = "d4624c36b6795d1d99dcf0547af5443d";
+        String appIDWX = "wx49ba2c7147d2368d";
+        String appSecretWX = "85aa75ddb9b37d47698f24417a373134";
         // 添加微信
-        UMWXHandler wxHandler = new UMWXHandler(this, appIDWX, appSecretWX);
+     /*   UMWXHandler wxHandler = new UMWXHandler(this, appIDWX, appSecretWX);
         wxHandler.setTargetUrl(url);
         wxHandler.setTitle(title);
         wxHandler.showCompressToast(false);
-        wxHandler.addToSocialSDK();
+        wxHandler.addToSocialSDK();*/
         // 添加微信朋友圈
         UMWXHandler wxCircleHandler = new UMWXHandler(this, appIDWX, appSecretWX);
         wxCircleHandler.setTitle(title);
         wxCircleHandler.setTargetUrl(url);
         wxCircleHandler.setToCircle(true);
-        wxHandler.showCompressToast(false);
+        wxCircleHandler.showCompressToast(false);
         wxCircleHandler.addToSocialSDK();
         // 移除多余平台
-        mShareService.getConfig().removePlatform(SHARE_MEDIA.TENCENT, SHARE_MEDIA.SINA);
+//        mShareService.getConfig().removePlatform(SHARE_MEDIA.TENCENT, SHARE_MEDIA.SINA);
     }
 }

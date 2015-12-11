@@ -3,7 +3,6 @@ package com.mckuai.imc.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,7 +39,6 @@ import com.mckuai.imc.bean.MCUser;
 import com.mckuai.imc.bean.Post;
 import com.mckuai.imc.bean.PostBaen;
 import com.mckuai.imc.utils.FastBlur;
-import com.mckuai.imc.widget.CircleImageView;
 import com.mckuai.imc.widget.MC_RadioButton;
 import com.mckuai.imc.widget.XListView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -48,12 +46,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.socialize.bean.SHARE_MEDIA;
-import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.media.UMImage;
-import com.umeng.socialize.sso.QZoneSsoHandler;
-import com.umeng.socialize.sso.UMQQSsoHandler;
-import com.umeng.socialize.weixin.controller.UMWXHandler;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -97,7 +90,7 @@ public class UserCenter extends BaseActivity implements OnCheckedChangeListener,
     private Gson mGson;
     private ImageLoader mLoader;
     private DisplayImageOptions mCircle;
-    private com.umeng.socialize.controller.UMSocialService mShareService;
+//    private com.umeng.socialize.controller.UMSocialService mShareService;
     private static MCMessage msg;
 
     private String[] mMessageType = {"all", "system"};
@@ -144,7 +137,7 @@ public class UserCenter extends BaseActivity implements OnCheckedChangeListener,
         mCircle = application.getCircleOption();
         url = getString(R.string.interface_domainName) + getString(R.string.interface_userCenter);
         mGson = new Gson();
-        initShare();
+//        initShare();
     }
 
     @Override
@@ -243,52 +236,24 @@ public class UserCenter extends BaseActivity implements OnCheckedChangeListener,
         list.setOnItemClickListener(this);
     }
 
-
-    private void initShare() {
-        if (null == user) {
-            user = application.user;
-        }
-        mShareService = UMServiceFactory.getUMSocialService("com.umeng.share");
-        String targetUrl = "http://www.mckuai.com/u/" + user.getId();
-        String title = "麦块for我的世界盒子";
-        String context;
+    private void share(){
+        String title = getString(R.string.appname_mckuai);
+        String url = getString(R.string.share_user,user.getId());//"http://www.mckuai.com/u/" + user.getId();
+        String content;
         if (application.isLogin() && application.user.getId() == user.getId()) {
-            context = "我正在使用《麦块for我的世界盒子》，看看我厉害吧！";
+            content = "我正在使用《麦块for我的世界盒子》，看看我厉害吧！";
         } else {
-            context = "我发现了一个高手，大家速来围观";
+            content = "我发现了一个高手，大家速来围观";
         }
-
-        String appID_QQ = "101155101";
-        String appAppKey_QQ = "78b7e42e255512d6492dfd135037c91c";
-        // 添加qq
-        UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(this, appID_QQ, appAppKey_QQ);
-        qqSsoHandler.setTargetUrl(targetUrl);
-        qqSsoHandler.setTitle(title);
-        qqSsoHandler.addToSocialSDK();
-        // 添加QQ空间参数
-        QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler(this, appID_QQ, appAppKey_QQ);
-        qZoneSsoHandler.setTargetUrl(targetUrl);
-        qZoneSsoHandler.addToSocialSDK();
-
-        String appIDWX = "wx49ba2c7147d2368d";
-        String appSecretWX = "85aa75ddb9b37d47698f24417a373134";
-        // 添加微信
-        UMWXHandler wxHandler = new UMWXHandler(this, appIDWX, appSecretWX);
-        wxHandler.setTargetUrl(targetUrl);
-        wxHandler.setTitle(title);
-        wxHandler.showCompressToast(false);
-        wxHandler.addToSocialSDK();
-        // 添加微信朋友圈
-        UMWXHandler wxCircleHandler = new UMWXHandler(this, appIDWX, appSecretWX);
-        wxCircleHandler.setToCircle(true);
-        wxCircleHandler.setTargetUrl(targetUrl);
-        wxHandler.showCompressToast(false);
-        wxCircleHandler.setTitle(title);
-        wxCircleHandler.addToSocialSDK();
-        // 移除多余平台
-        mShareService.getConfig().removePlatform(SHARE_MEDIA.TENCENT, SHARE_MEDIA.SINA);
-        mShareService.setShareContent(context);
+        UMImage image = null;
+        if (null != user.getHeadImg() && 10 < user.getHeadImg().length()) {
+            image = new UMImage(this, user.getHeadImg());
+        } else {
+            image = new UMImage(this, R.drawable.icon_share_default);
+        }
+        application.share(this,title,content,url,image);
     }
+
 
     private void showData() {
         switch (showGroup) {
@@ -394,13 +359,6 @@ public class UserCenter extends BaseActivity implements OnCheckedChangeListener,
             String url = (String) iv_User.getTag() + "";
             if (null != user.getHeadImg() && 10 < user.getHeadImg().length()
                     && !url.equalsIgnoreCase(user.getHeadImg())) {
-                UMImage image = null;
-                if (null != user.getHeadImg() && 10 < user.getHeadImg().length()) {
-                    image = new UMImage(this, user.getHeadImg());
-                } else {
-                    image = new UMImage(this, R.drawable.icon_share_default);
-                }
-                mShareService.setShareMedia(image);
                 mLoader.displayImage(user.getHeadImg(), iv_User, mCircle, new ImageLoadingListener() {
 
                     @Override
@@ -898,7 +856,8 @@ public class UserCenter extends BaseActivity implements OnCheckedChangeListener,
                 break;
             case R.id.btn_Share:
                 MobclickAgent.onEvent(this, "shareUser_UserCenter");
-                mShareService.openShare(this, false);
+//                mShareService.openShare(this, false);
+                share();
                 break;
             case R.id.tv_addTopackage:
                 if (isFrend) {

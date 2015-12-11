@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -141,7 +142,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void checkUpgrade() {
         updateService = AppUpdateService.getAppUpdate(this);
         String url = getString(R.string.interface_domain_update) + getString(R.string.interface_checkupgread);
-//        url = url + "&pushMan=" + URLEncoder.encode(getString(R.string.channel));
         url += "&pushMan=" + URLEncoder.encode(BuildConfig.FLAVOR);
         updateService.checkLatestVersionQuiet(url, new SimpleJSONParser());
         isCheckUpadte = true;
@@ -209,6 +209,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     mFM.beginTransaction().replace(R.id.fragment, mCommunityFragment, "communityfragment").commit();
                     mToolbar.setBackgroundResource(R.color.colorPrimary);
                     fab.setBackgroundTintList(getResources().getColorStateList(R.color.fab_forum_selector));
+                    fab.setBackgroundTintList(getResources().getColorStateList(R.color.fab_wa_selector));
+                    fab.setImageResource(R.mipmap.ic_wa);
                 } else {
                     isShowMCWa = !isShowMCWa;
                     if (isShowMCWa){
@@ -261,15 +263,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected boolean onBackKeyPressed() {
-        showMessage(fab, R.string.exit, R.string.action_exit, new View.OnClickListener() {
+        Snackbar.make(fab,getString(R.string.exit),Snackbar.LENGTH_LONG).setAction(getString(R.string.action_exit), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mApplication.saveProfile();
-//                mApplication.stopMusic();
                 MainActivity.this.finish();
                 System.exit(0);
             }
-        });
+        }).show();
         return true;
     }
 }

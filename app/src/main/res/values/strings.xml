@@ -19,9 +19,10 @@
     <item name="key_FORUMID" type="id"></item>
     <string name="tag_post">TAG_POST</string>
     <string name="user">USER_OBJECT</string>
+    <string name="appname_mckuai">麦块我的世界盒子</string>
 
     <!--其它-->
-    <string name="exit">是否退出麦块我的世界盒子?</string>
+    <string name="exit">是否退出?</string>
     <string name="action_exit">退出</string>
     <!--配置-->
     <string name="preferences_filename">config</string>
@@ -139,7 +140,7 @@
 
 
     <!--标题-->
-    <string name="title_main">MC哇</string>
+    <string name="title_main">麦块</string>
     <string name="title_contribution">贡献</string>
     <string name="title_ready">准备</string>
     <string name="title_answer">答题</string>
@@ -269,13 +270,15 @@
     <string name="refreshloading">正在加载...</string>
 
     <!--分享-->
-    <string name="share_url_download">http://wa.mckuai.com/down</string>
+    <string name="share_url_download">http://www.mckuai.com/down.html</string>
     <string name="share_title_score">MC哇——最好玩的我的世界百科知识问答游戏</string>
-    <string name="share_content_score">我正在玩MC哇，刚刚获得了%1$d分，敢来比一比吗？</string>
+    <string name="share_content_score">我正在玩麦块我的世界盒子小游戏——MC哇，刚刚获得了%1$d分，敢来比一比吗？</string>
     <string name="share_title_rank">MC哇——最好玩的我的世界百科知识问答游戏</string>
-    <string name="share_content_rank">我正在玩MC哇，我已经是第%1$d名了，敢来比一比吗？</string>
+    <string name="share_content_rank">我正在玩麦块我的世界盒子小游戏——MC哇，我已经是第%1$d名了，敢来比一比吗？</string>
     <string name="share_title_usercenter">MC哇——最好玩的我的世界百科知识问答游戏</string>
-    <string name="share_content_usercenter">我正在玩MC哇，已经完成了%1$d次，获得了%2$d分，敢来比一比吗？</string>
+    <string name="share_content_usercenter">我正在玩麦块我的世界盒子小游戏——MC哇，已经完成了%1$d次，获得了%2$d分，敢来比一比吗？</string>
+    <string name="share_post">http://www.mckuai.com/thread-%1$d.html</string>
+    <string name="share_user">http://www.mckuai.com/u/%1$d</string>
 
     <!-- 定位 -->
     <string name="addrs">定位</string>
